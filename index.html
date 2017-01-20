@@ -22,9 +22,12 @@
     <button ng-click="createRestaurant()">Create Restaurant</button>
 
     <table>
-      <tr ng-repeat="restaurant in restaurants">
+      <tr ng-repeat="restaurant in restaurants | orderBy : 'foodType'">
         <td>{{ restaurant.name }}</td>
         <td>{{ restaurant.foodType }}</td>
+        <td>
+          <button ng-click="deleteRestaurant(restaurant)">Delete</button>
+        </td>
       </tr>
     </table>
 
