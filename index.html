@@ -34,7 +34,14 @@
     <button ng-click="createRestaurant()">Create Restaurant</button>
 
     <table ng-cloak>
-      <tr ng-repeat="restaurant in restaurants | orderBy : 'foodType'" >
+      <tr>
+        <th ng-click="setOrderBy('name')">Name</th>
+        <th ng-click="setOrderBy('foodType')">Food Type</th>
+        <th ng-click="setOrderBy()">Picture</th>
+        <th ng-click="setOrderBy()">Delete?</th>
+      </tr>
+      <tr ng-repeat="restaurant in restaurants | orderBy : 'ordering' | filter : { $: searchTerm }" >
+        <td> {{ ordering }} </td>
         <td>{{ restaurant.name }}</td>
         <td>{{ restaurant.foodType }}</td>
         <td><img ng-src="{{ restaurant.image }}"></td>
@@ -44,7 +51,8 @@
       </tr>
     </table>
 
-
+    <h2>Search Restaurants</h2>
+    <input type="text" ng-model="searchTerm">
 
     <script src="app.js"></script>
 
