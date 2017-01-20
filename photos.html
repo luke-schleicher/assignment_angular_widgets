@@ -26,21 +26,27 @@
       </div>
     
       <div class="row">
+        <div class="col-xs-6">
+          <label class="block">View Images by Filter
+            <select class="block" ng-model="selectedFilter">
+              <option></option>
+              <option ng-repeat="filter in filters">{{ filter }}</option>
+            </select>
+          </label>
+        </div>
 
-        <label class="block">View Images by Filter
-          <select class="block" ng-model="selectedFilter">
-            <option></option>
-            <option ng-repeat="filter in filters">{{ filter }}</option>
-          </select>
-        </label>
-
-        <label class="block">View Images by Tags
-          <select class="block" ng-model="selectedTag" multiple>
-            <option ng-repeat="tag in tags">{{ tag }}</option>
-          </select>
-        </label>
+        <div class="col-xs-6">
+          <label class="block">View Images by Tags
+            <select class="block" ng-model="selectedTags" multiple>
+              <option ng-repeat="tag in tags | uniqueTags">{{ tag }}</option>
+            </select>
+          </label>
+        </div>
         
-        <div class='col-sm-3 photo-panel' ng-repeat="photo in photosData | filter: selectedFilter">
+        <div class='col-sm-3 photo-panel' ng-repeat="photo in photosData |
+              filter : selectedFilter |
+              anySelectedTag : selectedTags">
+
           <a ng-href="{{ photo.pageUrl }}"><img ng-src="{{ photo.imageUrl }}" class="{{ photo.filter | lowercase }}"></a>
           <p><a ng-href="{{ photo.usersUrl }}">{{ photo.username }}</a></p>
           <p>Created At: {{ photo.postedAt | date }}</p>
@@ -58,6 +64,8 @@
       
       <script src="photos.js"></script>
       <script src="app.js"></script>
+      <script src="filters/unique_tags.js"></script>
+      <script src="filters/anySelectedTag.js"></script>
       <script src="controllers/photos_controller.js"></script>
   </body>
 </html>

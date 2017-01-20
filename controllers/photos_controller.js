@@ -18,6 +18,8 @@ widgets.controller('PhotosCtrl',
       };
     });
 
+    $scope.selectedTags = [];
+
     $scope.filters = [];
     $scope.tags = [];
 
@@ -49,5 +51,15 @@ widgets.controller('PhotosCtrl',
       }
 
     });
+
+    // $scope.anySelectedTag = function() {
+    //   if (!$scope.selectedTags) {
+    //     return '';
+    //   };
+
+    //   return $scope.selectedTags.map(function(tag) {
+    //     return {tag: tag};
+    //   })
+    // }
 
 }]);
