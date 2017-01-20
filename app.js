@@ -4,6 +4,8 @@ widgets.controller('RestaurantCtrl',
   ['$scope',
   function($scope) {
 
+    $scope.ordering = 'foodType';
+
     $scope.restaurants = [
         { id: 0, name: 'Burger King', foodType: 'Fries', image: 'http://burgerking.s3-website-us-east-1.amazonaws.com/sites/default/files/papas%20medianas.png' },
         { id: 1, name: 'Panda Express', foodType: 'Noodles', image: 'https://s3.amazonaws.com/PandaExpressWebsite/Responsive/img/food/navigation/sidedishes.jpg' },
@@ -32,6 +34,10 @@ widgets.controller('RestaurantCtrl',
           break;
         }
       }
+    }
+
+    $scope.setOrderBy = function(ordering) {
+      $scope.ordering = ordering;
     }
 
   }]);
