@@ -13,7 +13,8 @@ widgets.controller('PhotosCtrl',
         postedAt: parseInt(photo.created_time) * 1000,
         likeCount: photo.likes.count,
         commentCount: photo.comments.count,
-        filter: photo.filter
+        filter: photo.filter,
+        tags: photo.tags
       };
     });
 

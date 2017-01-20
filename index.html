@@ -40,7 +40,7 @@
         <th>Picture</th>
         <th>Delete?</th>
       </tr>
-      <tr ng-repeat="restaurant in restaurants | orderBy : ordering | filter : { $: searchTerm }" >
+      <tr ng-repeat="restaurant in restaurants | orderBy : ordering | filter : { name: searchTerm, foodType: searchTerm }" >
         <td>{{ restaurant.name }}</td>
         <td>{{ restaurant.foodType }}</td>
         <td><img ng-src="{{ restaurant.image }}"></td>

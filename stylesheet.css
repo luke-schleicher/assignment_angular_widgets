@@ -1,6 +1,44 @@
-img {
+* {
+  box-sizing: border-box;
+}
+
+td img {
   max-width: 100px;
   max-height: 100px;
   width: auto;
   height: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+img:hover {
+  opacity: 0.8;
+}
+
+.photo-panel p {
+  font-size: 12px;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.photo-panel {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 18px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.tag {
+  font-size: 8px;
+  color: #ccc;
+  display: inline-block;
+}
+
+.tag:hover {
+  color: #444;
 }

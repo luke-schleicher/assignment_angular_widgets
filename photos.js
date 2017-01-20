@@ -104,7 +104,7 @@ var instagramResponse = {
           }
         ]
       },
-      "filter": "Normal",
+      "filter": "Moon",
       "created_time": "1440696547",
       "link": "https://instagram.com/p/65S1D8AJKt/",
       "likes": {
@@ -467,7 +467,7 @@ var instagramResponse = {
           }
         ]
       },
-      "filter": "Normal",
+      "filter": "Nashville",
       "created_time": "1440693592",
       "link": "https://instagram.com/p/65NMVrieqv/",
       "likes": {
@@ -648,7 +648,7 @@ var instagramResponse = {
           }
         ]
       },
-      "filter": "Normal",
+      "filter": "Toaster",
       "created_time": "1440696186",
       "link": "https://instagram.com/p/65SI9Mv_6q/",
       "likes": {
@@ -829,7 +829,7 @@ var instagramResponse = {
           }
         ]
       },
-      "filter": "Normal",
+      "filter": "Brooklyn",
       "created_time": "1440697327",
       "link": "https://instagram.com/p/65UUTFGpMZ/",
       "likes": {
@@ -1004,7 +1004,7 @@ var instagramResponse = {
           }
         ]
       },
-      "filter": "Normal",
+      "filter": "_1977",
       "created_time": "1440693711",
       "link": "https://instagram.com/p/65NazbnSpT/",
       "likes": {
@@ -1185,7 +1185,7 @@ var instagramResponse = {
           }
         ]
       },
-      "filter": "Normal",
+      "filter": "Inkwell",
       "created_time": "1440691457",
       "link": "https://instagram.com/p/65JHtjCTef/",
       "likes": {

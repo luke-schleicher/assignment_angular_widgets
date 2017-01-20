@@ -13,6 +13,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 
+    <link rel="stylesheet" href="https://cssgram-cssgram.netdna-ssl.com/cssgram.min.css">
     <link rel="stylesheet" href="stylesheet.css">
 
   </head>
@@ -20,15 +21,19 @@
 
     <div class="container">
     
-      <div>
-        <a ng-href="{{ test.pageUrl }}"><img ng-src="{{ test.imageUrl }}"></a>
-        <p><a ng-href="{{ test.usersUrl }}">{{ test.username }}</a></p>
-        <p>Created At: {{ test.postedAt | date }}</p>
-        <p>&#9786; {{ test.likeCount }} likes</p>
-        <p>&#128172; {{ test.commentCount }} comments</p>
-        <p>Filter type: {{ test.filter }}</p>
-      </div>      
-    
+      <div class="row">
+        
+        <div class='col-sm-4 photo-panel' ng-repeat="photo in photosData">
+          <a ng-href="{{ photo.pageUrl }}"><img ng-src="{{ photo.imageUrl }}" class="{{ photo.filter | lowercase }}"></a>
+          <p><a ng-href="{{ photo.usersUrl }}">{{ photo.username }}</a></p>
+          <p>Created At: {{ photo.postedAt | date }}</p>
+          <p>&#9786; {{ photo.likeCount }} likes</p>
+          <p>&#128172; {{ photo.commentCount }} comments</p>
+          <p>Filter type: {{ photo.filter }}</p>
+          <p ng-repeat="tag in photo.tags" class='tag'>#{{ tag }} </p>
+        </div>     
+      
+      </div>
     </div>
     
 
