@@ -18,5 +18,36 @@ widgets.controller('PhotosCtrl',
       };
     });
 
-    $scope.test = $scope.photosData[0];
+    $scope.filters = [];
+    $scope.tags = [];
+
+    $scope.photosData.forEach(function(element) {
+
+      var filter = element.filter;
+      var unique = true;
+
+      for (var i = 0; i < $scope.filters.length; i++) {
+        if ($scope.filters[i] === filter) {
+          unique = false;
+          break;
+        }
+      }
+
+      if (unique) {
+        $scope.filters.push(filter);        
+      }
+
+    });
+
+    $scope.photosData.forEach(function(element) {
+
+      var tags = element.tags;
+
+      for (var i = 0; i < tags.length; i++) {
+        var tag = tags[i];
+        $scope.tags.push(tag);        
+      }
+
+    });
+
 }]);

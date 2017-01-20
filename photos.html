@@ -17,13 +17,30 @@
     <link rel="stylesheet" href="stylesheet.css">
 
   </head>
-  <body>
+  <body ng-cloak>
 
     <div class="container">
+
+      <div class="jumbotron">
+        <h1>Instagram Images</h1>
+      </div>
     
       <div class="row">
+
+        <label class="block">View Images by Filter
+          <select class="block" ng-model="selectedFilter">
+            <option></option>
+            <option ng-repeat="filter in filters">{{ filter }}</option>
+          </select>
+        </label>
+
+        <label class="block">View Images by Tags
+          <select class="block" ng-model="selectedTag" multiple>
+            <option ng-repeat="tag in tags">{{ tag }}</option>
+          </select>
+        </label>
         
-        <div class='col-sm-4 photo-panel' ng-repeat="photo in photosData">
+        <div class='col-sm-3 photo-panel' ng-repeat="photo in photosData | filter: selectedFilter">
           <a ng-href="{{ photo.pageUrl }}"><img ng-src="{{ photo.imageUrl }}" class="{{ photo.filter | lowercase }}"></a>
           <p><a ng-href="{{ photo.usersUrl }}">{{ photo.username }}</a></p>
           <p>Created At: {{ photo.postedAt | date }}</p>

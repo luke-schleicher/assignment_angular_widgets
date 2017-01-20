@@ -31,6 +31,7 @@ img:hover {
   margin-top: 18px;
   padding-top: 18px;
   padding-bottom: 18px;
+  min-height: 450px;
 }
 
 .tag {
@@ -42,3 +43,8 @@ img:hover {
 .tag:hover {
   color: #444;
 }
+
+.block {
+  display: block;
+}
+
