@@ -35,13 +35,12 @@
 
     <table ng-cloak>
       <tr>
-        <th ng-click="setOrderBy('name')">Name</th>
-        <th ng-click="setOrderBy('foodType')">Food Type</th>
-        <th ng-click="setOrderBy()">Picture</th>
-        <th ng-click="setOrderBy()">Delete?</th>
+        <th ng-click="setOrderBy('name')">Name {{ getArrow('name') }}</th>
+        <th ng-click="setOrderBy('foodType')">Food Type {{ getArrow('foodType') }}</th>
+        <th>Picture</th>
+        <th>Delete?</th>
       </tr>
-      <tr ng-repeat="restaurant in restaurants | orderBy : 'ordering' | filter : { $: searchTerm }" >
-        <td> {{ ordering }} </td>
+      <tr ng-repeat="restaurant in restaurants | orderBy : ordering : orderDirection | filter : { $: searchTerm }" >
         <td>{{ restaurant.name }}</td>
         <td>{{ restaurant.foodType }}</td>
         <td><img ng-src="{{ restaurant.image }}"></td>

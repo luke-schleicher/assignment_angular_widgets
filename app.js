@@ -2,9 +2,12 @@ var widgets = angular.module('widgets', []);
     console.log('controller is working');
 widgets.controller('RestaurantCtrl',
   ['$scope',
-  function($scope) {
+   '$sce',
+  function($scope, $sce) {
 
     $scope.ordering = 'foodType';
+
+    $scope.arrow = '\u2193';
 
     $scope.restaurants = [
         { id: 0, name: 'Burger King', foodType: 'Fries', image: 'http://burgerking.s3-website-us-east-1.amazonaws.com/sites/default/files/papas%20medianas.png' },
@@ -37,7 +40,23 @@ widgets.controller('RestaurantCtrl',
     }
 
     $scope.setOrderBy = function(ordering) {
-      $scope.ordering = ordering;
+      if ($scope.ordering === ordering) {
+        $scope.ordering = '-' + ordering;
+        $scope.orderDirection = true;
+        $scope.arrow = '\u2191';
+      } else {
+        $scope.ordering = ordering;
+        $scope.orderDirection = false;
+        $scope.arrow = '\u2193';
+        
+      }
+    }
+
+    $scope.getArrow = function(type) {
+      if (type === $scope.ordering) {
+        return $scope.arrow;        
+      }
+      return '';
     }
 
   }]);
