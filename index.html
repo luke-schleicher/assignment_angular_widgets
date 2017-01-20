@@ -40,7 +40,7 @@
         <th>Picture</th>
         <th>Delete?</th>
       </tr>
-      <tr ng-repeat="restaurant in restaurants | orderBy : ordering : orderDirection | filter : { $: searchTerm }" >
+      <tr ng-repeat="restaurant in restaurants | orderBy : ordering | filter : { $: searchTerm }" >
         <td>{{ restaurant.name }}</td>
         <td>{{ restaurant.foodType }}</td>
         <td><img ng-src="{{ restaurant.image }}"></td>
@@ -54,6 +54,7 @@
     <input type="text" ng-model="searchTerm">
 
     <script src="app.js"></script>
+    <script src="controllers/restaurant_controller.js"></script>
 
   </body>
 
