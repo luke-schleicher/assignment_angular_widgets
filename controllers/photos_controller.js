@@ -1,17 +1,21 @@
 widgets.controller('PhotosCtrl',
   ['$scope',
   function($scope) {
+
     var rawFeed = instagramResponse.data; // array
-    $scope.photoData = rawFeed.map(function(photo) {
+
+    $scope.photosData = rawFeed.map(function(photo) {
       return {
-        image: photo.images.standard_resolution.url,
-        url: photo.link,
+        imageUrl: photo.images.standard_resolution.url,
+        pageUrl: photo.link,
         username: photo.user.username,
         usersUrl: "https://www.instagram.com/" + photo.user.username,
-        postedAt: photo.created_time,
+        postedAt: parseInt(photo.created_time) * 1000,
         likeCount: photo.likes.count,
         commentCount: photo.comments.count,
         filter: photo.filter
-      }
-    })
+      };
+    });
+
+    $scope.test = $scope.photosData[0];
 }]);

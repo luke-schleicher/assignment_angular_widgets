@@ -18,9 +18,21 @@
   </head>
   <body>
 
+    <div class="container">
+    
       <div>
-          {{ photoData | json }}
-      </div>
+        <a ng-href="{{ test.pageUrl }}"><img ng-src="{{ test.imageUrl }}"></a>
+        <p><a ng-href="{{ test.usersUrl }}">{{ test.username }}</a></p>
+        <p>Created At: {{ test.postedAt | date }}</p>
+        <p>&#9786; {{ test.likeCount }} likes</p>
+        <p>&#128172; {{ test.commentCount }} comments</p>
+        <p>Filter type: {{ test.filter }}</p>
+      </div>      
+    
+    </div>
+    
+
+
       
       <script src="photos.js"></script>
       <script src="app.js"></script>
