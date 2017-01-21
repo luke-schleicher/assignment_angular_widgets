@@ -26,7 +26,7 @@
       </div>
     
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-4">
           <label class="block">View Images by Filter
             <select class="block" ng-model="selectedFilter">
               <option></option>
@@ -35,17 +35,30 @@
           </label>
         </div>
 
-        <div class="col-xs-6">
+        <div class="col-xs-4">
           <label class="block">View Images by Tags
             <select class="block" ng-model="selectedTags" multiple>
               <option ng-repeat="tag in tags | uniqueTags">{{ tag }}</option>
             </select>
           </label>
         </div>
-        
+
+        <div class='col-xs-4'>
+          <button ng-hide="page === 0" ng-click="decreasePage()">Previous</button>
+          <button ng-hide="photosPerPage > (numPhotos - photosPerPage * page) - 1" ng-click="increasePage()">Next</button>
+          <p>{{ photoResults.length }} results</p>
+        </div>
+ 
+      </div>
+
+      <div class="row">
+
         <div class='col-sm-3 photo-panel' ng-repeat="photo in photosData |
               filter : selectedFilter |
-              anySelectedTag : selectedTags">
+              anySelectedTag : selectedTags |
+              limitTo : photosPerPage : (page * photosPerPage) |
+              filter:query as photoResults
+              ">
 
           <a ng-href="{{ photo.pageUrl }}"><img ng-src="{{ photo.imageUrl }}" class="{{ photo.filter | lowercase }}"></a>
           <p><a ng-href="{{ photo.usersUrl }}">{{ photo.username }}</a></p>
@@ -65,7 +78,7 @@
       <script src="photos.js"></script>
       <script src="app.js"></script>
       <script src="filters/unique_tags.js"></script>
-      <script src="filters/anySelectedTag.js"></script>
+      <script src="filters/any_selected_tag.js"></script>
       <script src="controllers/photos_controller.js"></script>
   </body>
 </html>
